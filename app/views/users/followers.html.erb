@@ -4,7 +4,7 @@
       <div class="card-header">
         <h3 class="card-title">
 <%= @user.name %>
-        </h3>
+</h3>
       </div>
       <div class="card-body">
         <img class="rounded img-fluid" src="
@@ -16,7 +16,6 @@
 <%= render 'relationships/follow_button', user: @user %>
 
   </aside>
-  
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="
@@ -42,6 +41,7 @@
 </span></a></li>
     </ul>
     
-<%= render 'microposts/microposts', microposts: @microposts %>
+<%= render 'users', users: @followers %>
+
   </div>
 </div>
