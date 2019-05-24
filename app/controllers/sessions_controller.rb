@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if login(email, password)
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
+      redirect_back_or @user
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render 'new'
@@ -31,5 +31,16 @@ class SessionsController < ApplicationController
     else
       return false
     end
+  end
+  
+  #記憶したURL (もしくはデフォルト値) にリダイレクト
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+  
+  #アクセスしようとしたURLを覚えておく
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

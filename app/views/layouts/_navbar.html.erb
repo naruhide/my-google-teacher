@@ -24,6 +24,10 @@
             </li>
             <li class="dropdown-divider"></li>
             <li class="dropdown-item">
+<%= link_to 'プロフィール編集', edit_user_path(current_user) %>              
+            </li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item">
 <%= link_to 'Logout', logout_path, method: :delete %>              
             </li>
           </ul>
