@@ -30,4 +30,39 @@
 <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
   </div>
 </div>
+
+<div class="timeline">
+  <h3>タイムライン</h3>
+  
+  <ul class="list-unstyled">
+    
+<% @microposts.each do |micropost| %>
+
+    <li class="media mb-3">
+      <div class="media-body">
+        <div>
+<%= micropost.user.name %>
+ <span class="text-muted">posted at 
+<%= micropost.created_at %>
+</span>
+        </div>
+        <div>
+          <p class="mb-0">ワード ->
+<%= micropost.word %>
+          </p>
+        </div>
+        <div>
+          <p class="mb-0">コメント ->
+<%= micropost.comment %>
+          </p>
+        </div>
+      </div>
+    </li>
+  
+<% end %>
+
+<%= paginate @microposts %>
+
+</ul>
+</div>
 <% end %>

@@ -30,7 +30,9 @@
         </li>
         
 <% else %>
-
+        <li class="nav-item">
+<%= link_to 'このサイトは？', explains_path, class: 'nav-link' %>
+        </li>
         <li class="nav-item">
 <%= link_to 'Signup', signup_path, class: 'nav-link' %>
         </li>
