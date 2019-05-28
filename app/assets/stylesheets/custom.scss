@@ -1,3 +1,10 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+
+
 /* forms */
 
 .checkbox {
@@ -14,3 +21,63 @@
   margin-left: 0;
 }
 
+
+
+.timeline h3 {
+  background-color: lightgreen;
+}
+
+
+.jumbotron h1 {
+  font-weight: bold;
+  font-size: 70px;
+  color: #FFBBFF;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.jumbotron {
+  background-image: url(024.1.jpg);
+  background-size: cover;
+  margin-bottom: 0;
+}
+
+.timeline h3 {
+  margin-bottom: 0;
+}
+
+.kensaku {
+  margin-right: 30px;
+}
+
+.comment {
+  margin-right: 14px;
+}
+
+.explains {
+  color: white;
+  font-weight: bold;
+}
+
+.lead {
+  font-weight: bold;
+}
+
+.col-sm-8 .text-center {
+  margin-top: 10px;
+}
+  

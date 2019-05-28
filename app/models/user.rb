@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
   before_save { self.email.downcase! }
+  before_create :create_activation_digest
+  
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
@@ -9,6 +11,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
 
   has_many :microposts
+  
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -75,5 +78,13 @@ class User < ApplicationRecord
   #ユーザのログイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  private
+  
+  # 有効化トークンとダイジェストを作成および代入する
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end

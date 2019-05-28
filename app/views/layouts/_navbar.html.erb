@@ -1,6 +1,6 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">私のGoogle先生</a>
+    <a class="navbar-brand" href="/">私の<span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span>先生</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +12,7 @@
 <% if logged_in? %>
 
         <li class="nav-item">
-<%= link_to 'Users', users_path, class: 'nav-link' %>
+<%= link_to 'ユーザ一覧', users_path, class: 'nav-link' %>
         </li>
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -20,28 +20,28 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-right">
             <li class="dropdown-item">
-<%= link_to 'プロフィール', user_path(current_user) %>
+<i class="fas fa-address-card"></i> <%= link_to '自分のプロフィール', user_path(current_user) %>
             </li>
             <li class="dropdown-divider"></li>
             <li class="dropdown-item">
-<%= link_to 'プロフィール編集', edit_user_path(current_user) %>              
+ <i class="fas fa-book-reader"></i> <%= link_to 'プロフィール編集', edit_user_path(current_user) %>              
             </li>
             <li class="dropdown-divider"></li>
             <li class="dropdown-item">
-<%= link_to 'Logout', logout_path, method: :delete %>              
+<i class="far fa-frown"></i> <%= link_to 'Logout', logout_path, method: :delete %>              
             </li>
           </ul>
         </li>
         
 <% else %>
         <li class="nav-item">
-<%= link_to 'このサイトは？', explains_path, class: 'nav-link' %>
+<%= link_to 'これって何のサイト？？', explains_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-<%= link_to 'Signup', signup_path, class: 'nav-link' %>
+<%= link_to '新規登録', signup_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-<%= link_to 'Login', login_path, class: 'nav-link' %>
+<%= link_to 'ログイン', login_path, class: 'nav-link' %>
         </li>
         
 <% end %>

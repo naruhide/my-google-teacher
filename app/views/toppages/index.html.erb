@@ -1,15 +1,30 @@
+<script>
+  (function() {
+    var cx = '014599910968141316808:yfuhqy0wuw4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+
 <% if logged_in? %>
 
   <div class="row">
-    <aside class="col-sm-4">
+    <aside class="col-sm-4 text-center">
+      <p><i class="fas fa-angle-double-down"></i> 投稿はこちら <i class="fas fa-angle-double-down"></i></p>
       
 <%= form_with(model: @micropost, local: true) do |f| %>
 
       <div class="form-group">
-<%= f.text_field :word, class: 'form-control', placeholder: 'ワード' %>
+<%= f.text_field :word, class: 'form-control', placeholder: '検索ワード' %>
       </div>
       <div class="form-group">
-<%= f.text_area :comment, class: 'form-control', row: 5, placeholder: 'コメント' %>
+<%= f.text_area :comment, class: 'form-control', row: 5, placeholder: '一言コメント' %>
       </div>
       
 <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
@@ -18,6 +33,8 @@
     </aside>
     
     <div class="col-sm-8">
+      <p class="text-center"><i class="fas fa-angle-double-down"></i> 全ユーザ投稿一覧 <i class="fas fa-angle-double-down"></i></p>
+    
 <%= render 'microposts/microposts', microposts: @microposts %>
     </div>
   </div>
@@ -25,35 +42,41 @@
 
 <div class="center jumbotron">
   <div class="text-center">
-    <h1>My Google Teacher</h1>
+    <h1>私の
+    <span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span>
+    先生
+    </h1>
     
-<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+<%= link_to '初めての方はこちら！', signup_path, class: 'btn btn-lg btn-primary' %>
   </div>
 </div>
 
-<div class="timeline">
-  <h3>タイムライン</h3>
-  
-  <ul class="list-unstyled">
+<div class="timeline text-center">
+  <h3><i class="fas fa-arrow-down"></i>　Timeline　<i class="fas fa-arrow-down"></i></h3>
+</div>
+
+  <ul class="list-unstyled list-group">
     
 <% @microposts.each do |micropost| %>
 
-    <li class="media mb-3">
+    <li class="media mb-3 list-group-item">
       <div class="media-body">
-        <div>
+        <div><i class="fas fa-address-card"></i>
 <%= micropost.user.name %>
  <span class="text-muted">posted at 
 <%= micropost.created_at %>
 </span>
         </div>
         <div>
-          <p class="mb-0">ワード ->
-<%= micropost.word %>
+          <p class="mb-0"><span class="kensaku">検索ワード</span><i class="fas fa-arrow-circle-right"></i>
+<a href="https://www.google.co.jp/search?q=<%= micropost.word %>" target="_blank" rel="noopener">
+   <span class="miropost-word"><%= micropost.word %></span>
+</a>
           </p>
         </div>
         <div>
-          <p class="mb-0">コメント ->
-<%= micropost.comment %>
+          <p class="mb-0"><span class="comment">一言コメント</span><i class="fas fa-arrow-circle-right"></i>
+<span class="micropost-comment"><%= micropost.comment %></span>
           </p>
         </div>
       </div>
@@ -64,5 +87,4 @@
 <%= paginate @microposts %>
 
 </ul>
-</div>
 <% end %>
