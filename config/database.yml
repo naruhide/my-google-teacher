@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: my_google_teacher_production
   username: my_google_teacher
   password: <%= ENV['MY_GOOGLE_TEACHER_DATABASE_PASSWORD'] %>
