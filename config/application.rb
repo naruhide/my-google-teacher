@@ -30,5 +30,13 @@ module MyGoogleTeacher
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.i18n.default_locale = :ja
+    
+    config.generators do |g|
+      g.test_framework :rspec,
+        view_spces: false,
+        helper_specs: false,
+        routing_specs: false,
+        requist_specs: false
+    end
   end
 end

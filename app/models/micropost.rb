@@ -1,5 +1,4 @@
 class Micropost < ApplicationRecord
-  mount_uploader :micropost_image, MicropostImageUploader
   belongs_to :user
   
   validates :word, presence: true, length: { maximum: 50 }
