@@ -36,8 +36,8 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = { host: '5783501f75c04e70952300fa41eea717.vfs.cloud9.us-east-2.amazonaws.com' }
+  #config.action_mailer.delivery_method = :test
+  #config.action_mailer.default_url_options = { host: '5783501f75c04e70952300fa41eea717.vfs.cloud9.us-east-2.amazonaws.com' }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
