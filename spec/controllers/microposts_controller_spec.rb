@@ -4,12 +4,12 @@ RSpec.describe MicropostsController, type: :controller do
   describe "#create" do
     context "as an authenticated user" do
       before do
-        @user = FactoryBot.create(:user)
+        @user = create(:user)
       end
       
       context "with valid attributes" do
         it "adds a micropost" do
-          micropost_params = FactoryBot.attributes_for(:micropost)
+          micropost_params = attributes_for(:micropost)
           log_in @user
           expect { post :create, params: { micropost: micropost_params }}.to change(@user.microposts, :count).by(1)
         end
@@ -17,7 +17,7 @@ RSpec.describe MicropostsController, type: :controller do
       
       context "with invalid attributes" do
         it "does not add a micropost" do
-          micropost_params = FactoryBot.attributes_for(:micropost, :invalid)
+          micropost_params = attributes_for(:micropost, :invalid)
           log_in @user
           expect { post :create, params: { micropost: micropost_params }}.to_not change(@user.microposts, :count)
         end
@@ -26,13 +26,13 @@ RSpec.describe MicropostsController, type: :controller do
     
     context "as a guest" do
       it "returns a 302 responde" do
-        micropost_params = FactoryBot.attributes_for(:micropost)
+        micropost_params = attributes_for(:micropost)
         post :create, params: { micropost: micropost_params }
         expect(response).to have_http_status "302"
       end
       
       it "redirects to the login page" do
-        micropost_params = FactoryBot.attributes_for(:micropost)
+        micropost_params = attributes_for(:micropost)
         post :create, params: { micropost: micropost_params }
         expect(response).to redirect_to login_url
       end
@@ -42,8 +42,8 @@ RSpec.describe MicropostsController, type: :controller do
   describe "#destroy" do
     context "as an authenticated user" do
       before do
-        @user = FactoryBot.create(:user)
-        @micropost = FactoryBot.create(:micropost, user: @user)
+        @user = create(:user)
+        @micropost = create(:micropost, user: @user)
       end
       
       it "deletes a micropost" do
@@ -54,9 +54,9 @@ RSpec.describe MicropostsController, type: :controller do
     
     context "as an unauthorized user" do
       before do
-        @user = FactoryBot.create(:user)
-        other_user = FactoryBot.create(:user)
-        @micropost = FactoryBot.create(:micropost, user: other_user)
+        @user = create(:user)
+        other_user = create(:user)
+        @micropost = create(:micropost, user: other_user)
       end
       
       it "does not delete the micropost" do
@@ -72,7 +72,7 @@ RSpec.describe MicropostsController, type: :controller do
       
       context "as a guest" do
         before do
-          @micropost = FactoryBot.create(:micropost)
+          @micropost = create(:micropost)
         end
         
         it "returns a 302 response" do
