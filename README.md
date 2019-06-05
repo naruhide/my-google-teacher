@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version 2.5.3
 
-Things you may want to cover:
+アプリ名
+  My-Google-Teacher
 
-* Ruby version
+url
+  <a href="https://my-google-teacher.herokuapp.com">https://my-google-teacher.herokuapp.com</a>
 
-* System dependencies
+概要
+  あなたが検索しているワードのおすすめを投稿、共有するサービスです。
+  他のユーザが投稿したおすすめワードはワンクリックで即Google検索が可能です。
+  今まで知らなかった世界を発見するチャンスを提供します。
 
-* Configuration
+主な実装機能
+  サインイン
+  ログイン(永続セッション)
+  投稿機能
+  フォロー、アンフォロー
+  お気に入り登録、解除
+  googleカスタム検索
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+イチオシポイント
+  他のユーザの投稿した検索ワードはリンクになるので、即検索可能です。
