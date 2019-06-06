@@ -20,6 +20,8 @@
       
 <%= form_with(model: @micropost, local: true) do |f| %>
 
+<%= render 'layouts/error_messages', model: f.object %>
+
       <div class="form-group">
 <%= f.text_field :word, class: 'form-control', placeholder: '検索ワード' %>
       </div>

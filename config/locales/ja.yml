@@ -10,5 +10,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
       micropost:
-        micropost_image: 投稿画像
+        word: 検索ワード
+        comment: 一言コメント
       
